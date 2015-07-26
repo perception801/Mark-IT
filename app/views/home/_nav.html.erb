@@ -1,15 +1,18 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
 <nav class="menu">
-  <h1 class="name"><i class="fi-book-bookmark"></i>Mark IT</a></h1>
+  <h1 class="name"><i class="fi-book-bookmark"></i>Mark IT</h1>
   <ul class="inline-list">
-    <li><Home</a></li>
-    <li class="active"><a href="#"></a></li>
-    <li><a href="#"></a></li>
   </ul>
-  <ul class="inline-list hide-for-small-only account-action">
+  <ul class="inline-list hide-for-small-only account-action"><% if current_user %>
+    <p class="welcome">Welcome <%=  current_user.email %></p>
+    <%= link_to "Edit Account", edit_user_registration_path, id: "myModal" %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete, id: 'myModal'%>
+<% else %>
     <li><%= link_to "Login", new_user_session_path, id: "myModal" %></li>
     <li><%= link_to "Signup", new_user_registration_path, id: "myModal" %></li>
+<% end %> 
+    </li>
   </ul>
   <a class="account hide-for-medium-up" href="#" data-reveal-id="myModal"><i class="fi-unlock"></i></a>
 </nav>
