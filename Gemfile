@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'redis', '~> 3.2.1'
 gem 'foundation-rails', '~> 5.5.1.2'
 gem 'devise'
-
+gem 'figaro', '1.0'
 group :production do
    gem 'pg'
    gem 'rails_12factor'
