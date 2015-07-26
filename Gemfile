@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'redis', '~> 3.2.1'
+gem 'foundation-rails', '~> 5.5.1.2'
+gem 'devise'
 
 group :production do
    gem 'pg'
@@ -51,8 +53,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'foundation-rails', '~> 5.5.1.2'
-  gem 'devise'
+  
 
 end
 
