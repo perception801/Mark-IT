@@ -1,0 +1,23 @@
+<h1>Add a new Bookmark</h1>
+<br><br>
+<div class="row">
+  <div class="medium-8 columns">
+    <p>Guidelines for creating a new bookmark:</p>
+    <ul>
+      <li>Make sure it's a valid link.</li>
+      <li>If you forget your "http://" tag, one will be provided to you free of charge.</li>
+      <li>If it's public, keep it SFW, for now.</li>
+    </ul>
+  </div>
+  <div class="medium-8 columns">
+    <%= form_for [@topic, @bookmark] do |b| %>
+      <div class="form-group">
+        <%= b.label :url %>
+        <%= b.text_field :url, placeholder: "Enter bookmark url" %>
+      </div>
+      <div class="small-2 columns">
+       <%= b.submit "Save", class: 'button round success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

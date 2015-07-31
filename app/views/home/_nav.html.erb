@@ -3,6 +3,7 @@
 <nav class="menu">
   <h1 class="name"><i class="fi-book-bookmark"></i>Mark IT</h1>
   <ul class="inline-list">
+    <li><%= link_to "Topics", topics_path %>
   </ul>
   <ul class="inline-list hide-for-small-only account-action"><% if current_user %>
     <p class="welcome">Welcome <%=  current_user.email %></p>

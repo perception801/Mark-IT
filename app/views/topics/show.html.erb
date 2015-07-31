@@ -1,0 +1,9 @@
+<h2><%= "##{@topic.title}" %></h2>
+
+<% @topic.bookmarks.each do |bookmark| %>
+<%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></br>
+<%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "150").html_safe %><%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "150").html_safe %>
+<% end %> 
+
+<%= link_to "Create Bookmark", new_topic_bookmark_path(@topic), class: 'button round success' %>
+

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="medium 12 columns">
+    <%= link_to "New Topic", new_topic_path, class: 'button round success' %>
+    <% @topics.each do |topic| %>
+      <h3><%= link_to "##{topic.title}", topic_path(topic) %></h3>
+      <br>
+      <% topic.bookmarks.each do |bookmark| %>
+        <div class="row">
+          <div class="medium 8 columns">
+          <%= display( "#{bookmark.url}").title %>
+          <br>
+          <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>
+          <br>
+          <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "150").html_safe %>
+          <br>
+          <%= link_to "##{bookmark.topic.title}", topic_path(topic.id) %>
+        </div>
+        </div
+
+        <br>
+        <% end %>
+        <% end %>
+      </div>
+    </div>

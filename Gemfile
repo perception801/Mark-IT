@@ -26,6 +26,9 @@ gem 'redis', '~> 3.2.1'
 gem 'foundation-rails', '~> 5.5.1.2'
 gem 'devise'
 gem 'figaro', '1.0'
+gem 'embedly', '~> 1.9.1'
+gem 'faker', '~> 1.4.3'
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
