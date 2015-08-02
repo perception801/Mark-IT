@@ -8,6 +8,7 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new
+    authorize @bookmark
   end
 
   def create
@@ -25,9 +26,21 @@ class BookmarksController < ApplicationController
   end
 end
 
-  def edit
-    @bookmark = Bookmark.find(params[:id])
+  def edit   
+  end
 
+  def update
+    authorize @bookmark
+    if @bookmark.update_attributes(bookmark_params)
+      redirect_to @topic, notice: "Bookmark was succesfully updated."
+      else
+      flash[:error] = "There was an error updating the bookmark, please try again."
+      render :edit 
+  end
+end
+
+  def destroy
+    authorize @bookmark
     if @bookmark.destroy
       flash[:notice] = "Bookmark was succesfully deleted."
       redirect_to @topic
@@ -36,14 +49,6 @@ end
       render :show 
   end
 end
-
-  def update
-  end
-
-  def destroy
-
-  end
-
 
 
 

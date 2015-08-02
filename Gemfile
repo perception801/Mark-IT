@@ -28,6 +28,7 @@ gem 'devise'
 gem 'figaro', '1.0'
 gem 'embedly', '~> 1.9.1'
 gem 'faker', '~> 1.4.3'
+gem 'pundit'
 
 group :production do
    gem 'pg'

@@ -13,11 +13,13 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
     @topics = Topic.all
     @topic = current_user.topics.build(topic_params)
+    authorize @topic
 
     if @topic.save
       flash[:notice] = "Topic succesfully created"
@@ -29,13 +31,16 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    authorize @topic
   end
 
   def update
+    authorize @topic
   end
 
   def destroy
     name = @topic.title
+    authorize @topic
     if @topic.destroy
       flash[:notice] = "\"#{name}\" was succesfully removed."
       redirect_to topic_path(current_user)
