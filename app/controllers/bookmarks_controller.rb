@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_topic, only: [:show, :edit, :new]
+  before_action :get_topic, only: [:show, :edit, :new, :create]
   before_action :get_bookmark, only: [:edit, :update, :destroy]
 
   def show
@@ -11,7 +11,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = current_user.bookmarks.build(bookmark_params)
+    @bookmarks = Bookmark.all
+    @bookmark = @topic.bookmarks.build(bookmark_params)
     @bookmark.topic = @topic
       
 
@@ -26,9 +27,21 @@ end
 
   def edit
     @bookmark = Bookmark.find(params[:id])
+
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark was succesfully deleted."
+      redirect_to @topic
+      else
+      flash[:error] = "There was an error deleting the bookmark, please try again."
+      render :show 
   end
+end
 
   def update
+  end
+
+  def destroy
+
   end
 
 

@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @bookmarks = @topic.bookmarks
+  @bookmarks = @topic.bookmarks
   end
 
   def new
@@ -35,9 +35,10 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    name = @topic.title
     if @topic.destroy
       flash[:notice] = "\"#{name}\" was succesfully removed."
-      redirect_to topics_path
+      redirect_to topic_path(current_user)
     else
       flash[:error] = "There was an error removing the topic, please try again."
       render :show
