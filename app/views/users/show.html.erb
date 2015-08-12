@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>My Bookmarks</h1>
+<% @user_bookmarks.each do |bookmark| %>
+<div class="small-6 medium-8 columns"
+  <b><%= display( "#{bookmark.url}").title %></b></br>
+          <hr>
+          <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>
+          <hr>
+          <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "240").html_safe %>
+          <% end %>

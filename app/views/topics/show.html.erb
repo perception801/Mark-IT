@@ -4,7 +4,7 @@
      <% @topic.bookmarks.each do |bookmark| %>
      <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
      
-        <%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></br>
+    <%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></br>
     <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "150").html_safe %>
     <% if policy(@topic).edit? %>
     <%= link_to "Delete", [@topic, bookmark],  method: :delete, data: {confirm: 'Are you sure you want to do that?'} %>
