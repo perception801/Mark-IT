@@ -7,6 +7,7 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @user = current_user
     @bookmark = Bookmark.new
     authorize @bookmark
   end

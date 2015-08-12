@@ -1,19 +1,19 @@
 <div class="row">
-  <div class="medium 12 columns">
-    <%= link_to "New Topic", new_topic_path, class: 'button round success' %>
+  <div class="small-12 columns">
+  
+    <%= link_to "New Topic", new_topic_path, class: 'button success' %>
+  
     <% @topics.each do |topic| %>
       <h3><%= link_to "##{topic.title}", topic_path(topic) %></h3>
       <br>
       <% topic.bookmarks.each do |bookmark| %>
-        <div class="row">
-          <div class="medium 8 columns">
-          <%= display( "#{bookmark.url}").title %>
-          <br>
+          <div class="small-4 columns">
+         <b><%= display( "#{bookmark.url}").title %></b></br>
+          <hr>
           <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>
-          <br>
-          <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "150").html_safe %>
-          <br>
-          <%= link_to "##{bookmark.topic.title}", topic_path(topic.id) %>
+          <hr>
+          <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "240").html_safe %>
+        </div>
         </div>
         </div
 

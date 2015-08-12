@@ -1,0 +1,9 @@
+<% if policy(Like.new).create? %>
+  <% if like = current_user.liked %>
+    <%= link_to bookmark.unlike!(current_user)%>
+      <i class="fi-dislike"></i><%= link_to bookmark.unlike!(current_user)%>
+    <% end %>
+  <% else %>
+    <%= link_to bookmark.like!(current_user) %>
+      <i class="fi-like"> </i> Like
+    <% end %>
